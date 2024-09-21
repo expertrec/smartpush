@@ -28,6 +28,19 @@
             width: 100%;
             bottom: 0;
         }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -39,6 +52,15 @@
     <main>
         <p>This is a sample HTML page to demonstrate smart notification.</p>
         <p>You can subscribe, unsubscribe, change preferences, receive notification etc!</p>
+        <p>Click the buttons below to request permission and trigger a notification.</p>
+
+        <!-- Button to request notification permission -->
+        <button id="requestPermissionBtn">Request Notification Permission</button>
+
+        <!-- Button to trigger a notification -->
+        <button id="showNotificationBtn" disabled>Show Notification</button>
+
+        <p id="statusMessage"></p>
     </main>
 
     <footer>
