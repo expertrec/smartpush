@@ -67,6 +67,47 @@
         <p>Created with ❤️ by Melchi</p>
     </footer>
 
+    <script>
+        // Elements
+        const requestPermissionBtn = document.getElementById('requestPermissionBtn');
+        const showNotificationBtn = document.getElementById('showNotificationBtn');
+        const statusMessage = document.getElementById('statusMessage');
+
+        // Request Notification Permission
+        requestPermissionBtn.addEventListener('click', () => {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    statusMessage.textContent = "Permission granted! You can now show notifications.";
+                    showNotificationBtn.disabled = false; // Enable the notification button
+                } else if (permission === "denied") {
+                    statusMessage.textContent = "Permission denied. Notifications won't be shown.";
+                } else {
+                    statusMessage.textContent = "Notification permission dismissed.";
+                }
+            });
+        });
+
+        // Show Notification
+        showNotificationBtn.addEventListener('click', () => {
+            if (Notification.permission === "granted") {
+                const notificationOptions = {
+                    body: "This is a test notification!",
+                    icon: "https://via.placeholder.com/128", // Example icon
+                    vibrate: [200, 100, 200],
+                    actions: [
+                        { action: 'explore', title: 'Go to the site' }
+                    ]
+                };
+
+                const notification = new Notification("Hello!", notificationOptions);
+
+                notification.onclick = () => {
+                    window.open("https://your-site-url.com"); // Change to your site or action URL
+                };
+            }
+        });
+    </script>
+
 </body>
 </html>
 
