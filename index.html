@@ -104,6 +104,8 @@
                 notification.onclick = () => {
                     window.open("https://www.expertrec.com"); // Change to your site or action URL
                 };
+            } else {
+                statusMessage.textContent = "Notification permission is not yet granted.";
             }
         });
     </script>
